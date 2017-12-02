@@ -1,0 +1,22 @@
+{
+  "name": "awesomeburger",
+  "version": "1.0.1",
+  "description": "Animated hamburger menu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kachakot/awesomeburger.git"
+  },
+  "keywords": [
+    "awesomeburger"
+  ],
+  "author": "Katarzyna Kotynska <k.kotynska91@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kachakot/awesomeburger/issues"
+  },
+  "homepage": "https://github.com/kachakot/awesomeburger#readme"
+}

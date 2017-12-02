@@ -1,0 +1,186 @@
+$size-gutter: 40px;
+
+$color-white: #fff;
+
+$size-burger-line-v: 3px;
+$size-burger-h: 16px;
+$size-burger-v: 16px;
+$size-burger-line-space: 2px;
+$size-burger-angle: 45deg;
+
+
+%helper--burger-components {
+    width: 100%;
+    height: $size-burger-line-v;
+
+    background: currentColor;
+}
+
+.c-burger {
+    position: relative;
+
+    display: inline-flex;
+    overflow: hidden;
+
+    margin: -$size-gutter*2;
+    margin-right: -$size-gutter;
+    padding: $size-gutter*2;
+    padding-right: $size-gutter;
+
+    cursor: pointer;
+
+    color: $color-white;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    &__circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 48px;
+        height: 48px;
+
+        transition: .3s cubic-bezier(.200, .300, .600, .300) .15s;
+        transform: translate(-50%,-50%);
+
+        border: 3px solid $color_white;
+        border-radius: 50%;
+    }
+    &__inner {
+        position: relative;
+
+        display: flex;
+
+        width: $size-burger-h;
+        height: $size-burger-v;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    &__lines {
+        position: relative;
+
+        transition: .3s cubic-bezier(.600, .000, .200, 1.000) .15s;
+        transform: translateX(0%);
+
+        @extend %helper--burger-components;
+        &:before,
+        &:after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            display: block;
+
+            margin: 0 auto;
+            margin-left: 0;
+
+            content: '';
+            transition: .3s cubic-bezier(.600, .000, .200, 1.000);
+
+            @extend %helper--burger-components;
+        }
+        &:before {
+            top: calc(-#{$size-burger-line-space} - #{$size-burger-line-v});
+            bottom: auto;
+
+            transition-delay: .2s;
+        }
+        &:after {
+            top: auto;
+            bottom: calc(-#{$size-burger-line-space} - #{$size-burger-line-v});
+
+            transition-delay: .27s;
+        }
+    }
+    &__cross {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        margin: auto;
+
+        background: transparent;
+
+        @extend %helper--burger-components;
+        &:before,
+        &:after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            display: block;
+
+            margin: 0 auto;
+
+            content: '';
+            transition: .3s cubic-bezier(.600, .000, .200, 1.000);
+
+            @extend %helper--burger-components;
+        }
+        &:before,
+        &:after {
+            transform-origin: 50% 50%;
+        }
+        &:before {
+            top: 0;
+
+            transition-delay: .12s;
+            transform: rotate3d(0, 0, 1, -$size-burger-angle) translateX(800%);
+        }
+        &:after {
+            bottom: 0;
+
+            transition-delay: .24s;
+            transform: rotate3d(0, 0, 1, $size-burger-angle) translateX(-800%);
+        }
+    }
+    &__info {
+        @extend .u-info;
+    }
+    &:focus {
+        outline: none;
+    }
+    &.is-active {
+        .c-burger {
+            &__circle {
+                border: 2px solid transparent;
+            }
+            &__lines {
+                transition-delay: .12s;
+                transform: translateX(700%);
+                &:before,
+                &:after {
+                    transform: translateX(700%);
+                }
+                &:before {
+                    transition-delay: .07s;
+                }
+                &:after {
+                    transition-delay: 0s;
+                }
+            }
+            &__cross {
+                &:before {
+                    transform: rotate3d(0, 0, 1, -$size-burger-angle) translateX(0%);
+                }
+                &:after {
+                    transform: rotate3d(0, 0, 1, $size-burger-angle) translateX(0%);
+                }
+            }
+        }
+    }
+}
