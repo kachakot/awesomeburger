@@ -1,9 +1,7 @@
-import $ from 'jquery'
+const burger = document.getElementByClassName('.js-toggle-main-nav')
 
-const $burger = $('.js-toggle-main-nav')
-
-$burger.on('click.togglemenu', function (e) {
+burger.addEventListener('click', function (e) {
   e.stopPropagation()
   e.preventDefault()
-  $burger.toggleClass('is-active')
+  burger.classList.toggle('is-active')
 })
