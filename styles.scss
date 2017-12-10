@@ -46,7 +46,7 @@ $size-burger-angle: 45deg;
         transition: .3s cubic-bezier(.200, .300, .600, .300) .15s;
         transform: translate(-50%,-50%);
 
-        border: 3px solid $color_white;
+        border: 3px solid $color-black;
         border-radius: 50%;
     }
     &__inner {

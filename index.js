@@ -1,7 +1,7 @@
-const burger = document.getElementByClassName('.js-toggle-main-nav')
+const burger = document.getElementsByClassName('js-toggle-main-nav')
 
-burger.addEventListener('click', function (e) {
+burger[0].addEventListener('click', function(e) {
   e.stopPropagation()
   e.preventDefault()
-  burger.classList.toggle('is-active')
+  burger[0].classList.toggle('is-active')
 })

@@ -1,6 +1,6 @@
 {
   "name": "awesomeburger",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Animated hamburger menu",
   "main": "index.js",
   "scripts": {
